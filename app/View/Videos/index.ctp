@@ -11,4 +11,4 @@
 
 <?php echo $this->Paginator->numbers(); ?>
 
-<?php echo $this->Html->link('Добавить видео', array('controller' => 'videos', 'action' => 'add')); ?>
+<?php echo $this->Html->link(__('Add Video'), array('controller' => 'videos', 'action' => 'add')); ?>

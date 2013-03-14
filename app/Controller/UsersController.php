@@ -2,11 +2,6 @@
 
 class UsersController extends AppController {
 
-    public function beforeFilter() {
-        parent::beforeFilter();
-        // $this->Auth->allow('add');
-    }
-
     public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
@@ -21,19 +16,4 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
 
-    public function add() {
-        if ($this->request->is('post')) {
-            $this->User->create();
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
-        }
-    }
-
-    public function index() {
-
-    }
 }

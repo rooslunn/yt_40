@@ -36,12 +36,12 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'loginRedirect' => array('controller' => 'admin', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'videos', 'action' => 'index'),
         )
     );
 
     public function beforeFilter() {
-        // $this->Auth->allow('index', 'view');
+        $this->Auth->allow('index');
     }
 }
