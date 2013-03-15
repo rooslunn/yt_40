@@ -37,6 +37,7 @@ class AdminController extends AppController {
         if (!isset($id)) {
             throw new NotFoundException(__('Invalid id'));
         }
+        // todo:
         // if (!$this->request->is('post')) {
         //     throw new MethodNotAllowedException();
         // }
@@ -52,6 +53,7 @@ class AdminController extends AppController {
         if (!isset($id)) {
             throw new NotFoundException(__('Invalid id'));
         }
+        // todo:
         // if (!$this->request->is('post')) {
         //     throw new MethodNotAllowedException();
         // }
