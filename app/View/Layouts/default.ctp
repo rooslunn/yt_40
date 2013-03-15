@@ -32,6 +32,8 @@ $cakeDescription = __d('cake_dev', 'YT 40. Trial Task. RKladko.');
 
 		// echo $this->Html->css('cake.generic');
 
+        echo $this->Html->css('custom');
+
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -65,7 +67,7 @@ $cakeDescription = __d('cake_dev', 'YT 40. Trial Task. RKladko.');
       </div>
     </div>
 
-	<div id="container" class="row page-header">
+	<div id="container" class="row page-header well">
 		<div class="span1"></div>
 		<div id="content" class="span11">
 			<?php echo $this->Session->flash(); ?>

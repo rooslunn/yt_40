@@ -7,7 +7,7 @@
   </button>
   <button class="btn">
     <?php
-    echo $this->Html->link(__('View Video'), array('controller' => 'admin', 'action' => 'view'));
+    echo $this->Html->link(__('View Video'), array('controller' => 'admin', 'action' => 'viewforedit'));
     ?>
   </button>
 </div>

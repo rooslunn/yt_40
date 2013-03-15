@@ -1,8 +1,12 @@
-<table class="table">
+<table id="video_list" class="table well">
 
     <?php foreach ($videos as $video): ?>
-    <tr>
-        <td><?php echo $video['Video']['link']; ?></td>
+    <tr class="row-fluid">
+        <?php if($video['Video']['id'] == $next_video['Video']['id']) continue; ?>
+        <td><?php echo $video['Video']['link']; $next_video = next($videos); ?></td>
+        <?php if($next_video) {?>
+            <td><?php echo $next_video['Video']['link']; ?></td>
+        <?php }?>
     </tr>
     <?php endforeach; ?>
     <?php unset($video); ?>

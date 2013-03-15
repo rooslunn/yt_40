@@ -25,12 +25,45 @@ class AdminController extends AppController {
     public function actions() {
     }
 
-    public function moderate() {
+    private function _get_videos() {
         $params = array(
             'conditions' => array('Video.active' => 0),
             'order'      => array('Video.id' => 'asc'),
         );
-        $this->set('videos', $this->Video->find('all', $params));
+        return $this->Video->find('all', $params);
+    }
+
+    public function moderate() {
+        $this->set('videos', $this->_get_videos());
+    }
+
+    public function viewforedit() {
+        $this->set('videos', $this->_get_videos());
+    }
+
+    public function edit($id = null) {
+        if (!$id) {
+            throw new NotFoundException(__('Invalid video'));
+        }
+
+        $video = $this->Video->findById($id);
+        if (!$video) {
+            throw new NotFoundException(__('Invalid video'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $this->Video->id = $id;
+            if ($this->Video->save($this->request->data)) {
+                $this->Session->setFlash('Your video has been updated.');
+                $this->redirect(array('action' => 'viewforedit'));
+            } else {
+                $this->Session->setFlash('Unable to update your video.');
+            }
+        }
+
+        if (!$this->request->data) {
+            $this->request->data = $video;
+        }
     }
 
     public function reject($id = null) {

@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+#video_list {
+    table-layout: fixed;
+}
+
+#video_list tr td {
+    width: 410px;
+    overflow: hidden;
+}
