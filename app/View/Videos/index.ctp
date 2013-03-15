@@ -1,4 +1,4 @@
-<table>
+<table class="table">
 
     <?php foreach ($videos as $video): ?>
     <tr>
@@ -9,6 +9,8 @@
 
 </table>
 
-<?php echo $this->Paginator->numbers(); ?>
+<!-- Paginator -->
+<?php echo $this->Paginator->numbers() ?>
 
+<!-- Add video -->
 <?php echo $this->Html->link(__('Add Video'), array('controller' => 'videos', 'action' => 'add')); ?>

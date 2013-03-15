@@ -62,10 +62,12 @@ CREATE TABLE `videos` (
   `nick` varchar(128) NOT NULL,
   `link` varchar(255) NOT NULL,
   `descr` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `modified_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `videos_paginator_idx` (`modified_at`,`active`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +76,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (6,'roos','<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/jvGuaREjydI\" frameborder=\"0\" allowfullscreen></iframe>','About MY8-LAKE: Lake Processing Card','0000-00-00 00:00:00',0);
+INSERT INTO `videos` VALUES (14,'roos','<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/J1TqIgaDHWI\" frameborder=\"0\" allowfullscreen></iframe>','DEPECHE MODE - NEVER LET ME DOWN AGAIN - ONE NIGHT IN PARIS ','0000-00-00 00:00:00',1,'2013-03-15 07:38:12'),(15,'russ','<iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/p58eAlIspZw\" frameborder=\"0\" allowfullscreen></iframe>','DEPECHE MODE - SHAKE THE DISEASE - GERMANY TV 1985','0000-00-00 00:00:00',1,'2013-03-15 08:21:19'),(16,'asdf','<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/xAGe-5nbnEA\" frameborder=\"0\" allowfullscreen></iframe>','DEPECHE MODE - ENJOY THE SILENCE - LIVE','0000-00-00 00:00:00',1,'2013-03-15 08:21:28'),(17,'russ','<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/0HLblV2vgLc\" frameborder=\"0\" allowfullscreen></iframe>','Depeche Mode. (Kiev, 8.02.2010) Tour of the Universe (Live)','0000-00-00 00:00:00',1,'2013-03-15 08:21:36');
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -87,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-15  1:50:13
+-- Dump completed on 2013-03-15  8:29:03

@@ -17,7 +17,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'YT 40. Trial Task. RKladko.');
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,40 +30,51 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		// echo $this->Html->css('cake.generic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link(__('Adminka'), array('controller' => 'admin', 'action' => 'actions')); ?></h1>
-			<h1>
-				<?php
+
+	<div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">YT 40</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><?php echo $this->Html->link(__('Adminka'), array('controller' => 'admin', 'action' => 'actions')); ?></li>
+              <li><?php
 				    if ($this->Session->read('Auth.User')){
 				        echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout'));
 				    }
-				?>
-			</h1>
-		</div>
-		<div id="content">
+					?>
+				</li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
+	<div id="container" class="row page-header">
+		<div class="span1"></div>
+		<div id="content" class="span11">
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
 	</div>
+
 	<?php echo $this->element('sql_dump'); ?>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>
