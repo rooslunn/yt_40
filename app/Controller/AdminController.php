@@ -21,7 +21,7 @@ class AdminController extends AppController {
         }
     }
 
-    public function index() {
+    public function actions() {
     }
 
     public function moderate() {
